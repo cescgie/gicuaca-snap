@@ -1,0 +1,24 @@
+name: gicuaca
+version: '1.0.0' 
+summary: Command line weather tool.
+description: |
+  Get current weather:-
+    $ gicuaca
+  Get current weather in metric unit:-
+    $ gicuaca --metric
+  Get current weather in imperial units:-
+    $ gicuaca --imperial  
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+apps:
+  gicuaca:
+    command: gicuaca
+
+parts:
+  gicuaca:
+    plugin: nodejs
+    source: https://github.com/cescgie/gicuaca.git
+    install: |
+      npm test
